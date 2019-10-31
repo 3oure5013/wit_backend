@@ -11,7 +11,7 @@ app.get('/', function (req, res) {
     if(req.query["hub.mode"] == "subscribe" && req.query["hub.verify_token"] == MY_TOKEN){
         res.end(req.query["hub.challenge"])
     }else{
-        next();
+        res.end('out of facebook');
     }
 
 });
