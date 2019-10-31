@@ -1,11 +1,19 @@
-const {Wit, log} = require('node-wit');
+
+const express = require('express')
+const app = express()
+const MY_TOKEN = "abc12345";
 
 
-const MY_TOKEN = "GIHYJKL7GFQCLINX4RV5AYLPPR2TGJLH";
 
-const client = new Wit({
-  accessToken: MY_TOKEN,
-  logger: new log.Logger(log.DEBUG) // optional
+
+ 
+app.get('/', function (req, res) {
+
+    res.send(MY_TOKEN);
+
 });
+   
 
-console.log(client.message('Salut'));
+
+app.listen(3000, ()=>console.log("Serveur running on 3000"))
+
